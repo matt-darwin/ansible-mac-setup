@@ -13,12 +13,12 @@ homebrew_packages:
   - jenv
   - git
   - bash-completion
-  - tfswitch
+  - warrensbox/tap/tfswitch
   - sbt
   - scala
   - rsync
   - curl
   - pkg-config
   - awscli
-  - aws-sam-cli
+  - aws/tap/aws-sam-cli
   - apache-spark

@@ -7,8 +7,6 @@
     - vars/homebrew_cask_packages.yaml
 
   tasks:
-    - name: Install homebrew
-      command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh) < /dev/null"
 
     - name: Update homebrew
       community.general.homebrew:
