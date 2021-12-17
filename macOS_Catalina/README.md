@@ -27,4 +27,11 @@ Finally, install homebrew using:-
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-To clear any updates left in /Library/Updates you need to enter recovery mode.  Start the VirtualBox VM and immediately tap ESC to get into the BIOS.  Select Boot Loader -> EFI Command Line then press enter.  Press ESC again to load the command line.  On the command line change to the FS1: drive, and cd to the directory shown.  Within will be a file boot.efi, run this and this will boot to Recovery Mode.  You can then use the terminal to run ```csrutil --disable```, perform a soft restart, and then remove the files you wish from /Library/Updates.  Following a hard reset csrutil will be re-enabled.
+To clear any updates left in /Library/Updates you need to enter recovery mode.  Start the VirtualBox VM and immediately tap ESC to get into the BIOS.  Select Boot Loader -> EFI Command Line then press enter.  Press ESC again to load the command line.  On the command line change to the FS1: drive, and cd to the directory shown.  Within will be a file boot.efi, run this and this will boot to Recovery Mode.  You can then use the terminal to run ```csrutil disable```, perform a soft restart, and then remove the files you wish from /Library/Updates.  Following a hard reset csrutil will be re-enabled.
+
+Package the box by running:-
+
+```bash
+vagrant package
+vagrant box add --name macOS_Catalina package.box
+```
