@@ -8,13 +8,10 @@
 
   tasks:
 
-    - name: Update homebrew
-      community.general.homebrew:
-        update_homebrew: yes
-
     - name: Install homebrew packages
       community.general.homebrew:
         name: "{{ homebrew_packages }}"
+        update_homebrew: yes
 
     - name: Install homebrew cask packages
       community.general.homebrew_cask:

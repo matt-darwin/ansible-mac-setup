@@ -17,4 +17,4 @@ brew install ansible
 
 Amend the lists in vars/homebrew_packages.yaml and vars/homebrew_cask_packages.yaml with the packages you wish to install, then run the playbook:-
 
-```ansible-paybook -i hosts configure-mac.yaml```
+```ansible-paybook -i hosts configure-mac.yaml``` 

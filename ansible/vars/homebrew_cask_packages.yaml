@@ -5,3 +5,4 @@ homebrew_cask_packages:
   - docker
   - visual-studio-code
   - slack
+  - google-chrome
