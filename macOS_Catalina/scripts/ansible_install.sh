@@ -9,3 +9,4 @@ sudo su - vagrant -c "pip install --user ansible==4"
 export UPDATENAME=$(softwareupdate -l | grep Title | awk -F'([:,])' '{print $2}')
 sudo softwareupdate -ia "macOS Catalina 10.15.7 Update" --restart
 
+s 
