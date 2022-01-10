@@ -4,8 +4,6 @@ homebrew_packages:
   - openssl@1.1
   - openjdk
   - openjdk@11
-  - openjdk@8
-  - python@3.7
   - python@3.8
   - python@3.9
   - python@3.10
@@ -22,3 +20,4 @@ homebrew_packages:
   - awscli
   - aws/tap/aws-sam-cli
   - apache-spark
+  - pre-commit
