@@ -6,3 +6,8 @@ homebrew_cask_packages:
   - visual-studio-code
   - slack
   - google-chrome
+  - spotify
+  - keepassxc
+  - google-drive
+  - notion
+  - dbeaver-community
