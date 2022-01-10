@@ -11,3 +11,4 @@ homebrew_cask_packages:
   - google-drive
   - notion
   - dbeaver-community
+  - keeper-password-manager
