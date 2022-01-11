@@ -5,6 +5,7 @@
   vars_files:
     - vars/homebrew_packages.yaml
     - vars/homebrew_cask_packages.yaml
+    - vars/vscode_extensions.yaml
 
   tasks:
 
@@ -16,3 +17,17 @@
     - name: Install homebrew cask packages
       community.general.homebrew_cask:
         name: "{{ homebrew_cask_packages }}"
+
+    - name: Create VSCode Extension location
+      file:
+        path: ~/vscode_extensions
+        state: directory
+
+    - name: Set VSCode Extension location
+      ansible.builtin.shell: |
+        code --extensions_dir ~/vscode_extensions
+
+    - name: Install VSCode Extensions
+      ansible.builtin.shell:
+        cmd: "code --install-extension {{ item }}"
+      loop: "{{ vscode_extensions }}"
