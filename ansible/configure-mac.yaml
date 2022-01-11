@@ -6,6 +6,8 @@
     - vars/homebrew_packages.yaml
     - vars/homebrew_cask_packages.yaml
     - vars/vscode_extensions.yaml
+    - vars/pyenv_versions.yaml
+    - vars/jenv_versions.yaml
 
   tasks:
 
@@ -18,16 +20,43 @@
       community.general.homebrew_cask:
         name: "{{ homebrew_cask_packages }}"
 
-    - name: Create VSCode Extension location
-      file:
-        path: ~/vscode_extensions
-        state: directory
-
-    - name: Set VSCode Extension location
-      ansible.builtin.shell: |
-        code --extensions_dir ~/vscode_extensions
-
     - name: Install VSCode Extensions
-      ansible.builtin.shell:
-        cmd: "code --install-extension {{ item }}"
+      command: "code --install-extension {{ item }}"
       loop: "{{ vscode_extensions }}"
+      register: vscode_results
+      changed_when: "'already installed' not in vscode_results.stdout"
+      failed_when: "vscode_results.rc != 0 and 'already' not in vscode_results.stdout"
+
+    - name: Install pyenv versions
+      command: "pyenv install -s {{ item }}"
+      loop: "{{ pyenv_versions }}"
+      register: pyenv_results
+      changed_when: "pyenv_results.rc == 0 and pyenv_results.stdout != ''"
+
+    - name: Add jenv versions
+      command: "jenv add /opt/homebrew/Cellar/{{ item }}/libexec/openjdk.jdk/Contents/Home"
+      loop: "{{ jenv_versions }}"
+      register: jenv_results
+      changed_when: "'already' not in jenv_results.stdout"
+      failed_when: "jenv_results.rc != 0 and 'already' not in jenv_results.stdout"
+
+    - name: Amend .zshrc to include jenv settings
+      blockinfile:
+        path: ~/.zshrc
+        block: |
+          export PYENV_ROOT="$HOME/.pyenv"
+          export PATH="$PYENV_ROOT/bin:$PATH"
+          export PATH="$HOME/.jenv/bin:$PATH"
+
+          eval "$(pyenv init --path)"
+          eval "$(pyenv init -)"
+          eval "$(pyenv virtualenv-init -)"
+          eval "$(jenv init -)"
+
+    - name: Ensure JAVA_HOME is exposed automatically
+      shell: "source ~/.zshrc && jenv enable-plugin export"
+      register: java_home_results
+      changed_when: "'export plugin already enabled' not in java_home_results.stdout"
+
+    - debug:
+        msg: "{{ java_home_results }}"

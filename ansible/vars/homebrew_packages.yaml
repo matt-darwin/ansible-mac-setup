@@ -5,9 +5,8 @@ homebrew_packages:
   - openjdk
   - openjdk@11
   - python@3.8
-  - python@3.9
-  - python@3.10
   - pyenv
+  - pyenv-virtualenv
   - jenv
   - git
   - bash-completion
