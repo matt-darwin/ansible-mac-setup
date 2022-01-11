@@ -1,6 +1,6 @@
 ---
 
-vscode-extensions:
+vscode_extensions:
   - ms-python.python
   - ms-python.vscode-pylance
   - ms-azuretools.vscode-docker
