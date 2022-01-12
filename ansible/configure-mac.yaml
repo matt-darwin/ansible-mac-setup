@@ -40,9 +40,9 @@
       changed_when: "'already' not in jenv_results.stdout"
       failed_when: "jenv_results.rc != 0 and 'already' not in jenv_results.stdout"
 
-    - name: Amend .zshrc to include jenv settings
+    - name: Amend .bash_profile to include pyenv/jenv settings
       blockinfile:
-        path: ~/.zshrc
+        path: ~/.bash_profile
         block: |
           export PYENV_ROOT="$HOME/.pyenv"
           export PATH="$PYENV_ROOT/bin:$PATH"
@@ -52,11 +52,21 @@
           eval "$(pyenv init -)"
           eval "$(pyenv virtualenv-init -)"
           eval "$(jenv init -)"
+        create: yes
+
+    - name: Amend .zshrc to source .bash_profile
+      blockinfile:
+        path: ~/.zshrc
+        block: |
+          source ~/.bash_profile
+        create: yes
 
     - name: Ensure JAVA_HOME is exposed automatically
-      shell: "source ~/.zshrc && jenv enable-plugin export"
+      shell: "source ~/.bash_profile && jenv enable-plugin export"
       register: java_home_results
       changed_when: "'export plugin already enabled' not in java_home_results.stdout"
+      args:
+        executable: /bin/zsh
 
     - debug:
         msg: "{{ java_home_results }}"
