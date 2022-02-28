@@ -10,3 +10,4 @@ vscode_extensions:
   - amazonwebservices.aws-toolkit-vscode
   - 4ops.terraform
   - redhat.ansible
+  - ms-vscode-remote.remote-containers

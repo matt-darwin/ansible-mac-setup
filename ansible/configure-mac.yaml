@@ -70,3 +70,7 @@
 
     - debug:
         msg: "{{ java_home_results }}"
+
+    - name: Install Audio apps
+      community.general.homebrew_cask:
+        name: "{{ homebrew_cask_audio_packages }}"

@@ -12,3 +12,10 @@ homebrew_cask_packages:
   - notion
   - dbeaver-community
   - keeper-password-manager
+
+homebrew_cask_audio_packages:
+  - ableton-live-suite
+  - ilok-license-manager
+  - waves-central
+  - native-access
+  - musescore
