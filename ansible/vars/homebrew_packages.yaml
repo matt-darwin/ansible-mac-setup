@@ -20,3 +20,4 @@ homebrew_packages:
   - aws/tap/aws-sam-cli
   - apache-spark
   - pre-commit
+  - colima
