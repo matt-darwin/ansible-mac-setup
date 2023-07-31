@@ -2,13 +2,17 @@
 
 homebrew_cask_packages:
   - iterm2
-  - docker
   - visual-studio-code
   - slack
   - google-chrome
   - spotify
   - keepassxc
   - google-drive
-  - notion
   - dbeaver-community
-  - keeper-password-manager
+
+homebrew_cask_audio_packages:
+  - ableton-live-suite
+  - ilok-license-manager
+  - waves-central
+  - native-access
+  - musescore
