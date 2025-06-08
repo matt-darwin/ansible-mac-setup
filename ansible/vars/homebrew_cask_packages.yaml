@@ -8,11 +8,9 @@ homebrew_cask_packages:
   - spotify
   - keepassxc
   - google-drive
-  - dbeaver-community
 
 homebrew_cask_audio_packages:
   - ableton-live-suite
   - ilok-license-manager
   - waves-central
   - native-access
-  - musescore
