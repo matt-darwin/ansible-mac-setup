@@ -62,22 +62,6 @@
           eval "$(pyenv virtualenv-init -)"
           eval "$(jenv init -)"
 
-          export AWS_PROFILE=firebolt-publishing
-
-          export FIREBOLT_USER=matthew@firebolt.io
-          export FIREBOLT_SERVER=api.app.firebolt.io
-          export FIREBOLT_DEFAULT_REGION=us-east-1
-
-          if test -f $HOME/.pyenv/shims/keeper; then
-              echo "getting FIREBOLT_PASSWORD from keeper"
-              if test ! -f $HOME/.keeper/login_temp; then
-                keeper login --config=$HOME/.keeper/config.json;
-                touch $HOME/.keeper/login_temp;
-              fi
-              export FIREBOLT_PASSWORD=$(keeper find-password Internal/Firebolt --config=$HOME/.keeper/config.json)
-          else
-              echo "keeper not installed at $HOME/.pyenv/shims. Use pip install keepercommander to install";
-          fi
         create: yes
 
     - name: Ensure JAVA_HOME is exposed automatically
