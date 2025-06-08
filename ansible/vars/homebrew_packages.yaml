@@ -1,5 +1,4 @@
 ---
-
 homebrew_packages:
   - openssl@1.1
   - openjdk
@@ -26,4 +25,3 @@ homebrew_packages:
   - docker
   - docker-compose
   - dotnet
-
