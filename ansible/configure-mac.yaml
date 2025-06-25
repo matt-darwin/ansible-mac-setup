@@ -56,6 +56,7 @@
           export PYENV_ROOT="$HOME/.pyenv"
           export PATH="$PYENV_ROOT/bin:$PATH"
           export PATH="$HOME/.jenv/bin:$PATH"
+          export PATH="$HOME/.tfenv/bin:$PATH"
 
           eval "$(pyenv init --path)"
           eval "$(pyenv init -)"
@@ -73,7 +74,3 @@
 
     - debug:
         msg: "{{ java_home_results }}"
-
-    - name: Install Audio apps
-      community.general.homebrew_cask:
-        name: "{{ homebrew_cask_audio_packages }}"

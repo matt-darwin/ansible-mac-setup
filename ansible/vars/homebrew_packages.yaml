@@ -1,27 +1,21 @@
 ---
 homebrew_packages:
-  - openssl@1.1
+  - openssl@3
   - openjdk
   - openjdk@11
-  - python@3.8
-  - python@3.9
-  - python@3.10
+  - python@3.13
   - pyenv
   - pyenv-virtualenv
   - jenv
   - git
   - bash-completion
-  - warrensbox/tap/tfswitch
-  - sbt
-  - scala
   - rsync
   - curl
   - pkg-config
   - awscli
-  - aws/tap/aws-sam-cli
   - apache-spark
   - pre-commit
   - colima
   - docker
   - docker-compose
-  - dotnet
+  - tfenv

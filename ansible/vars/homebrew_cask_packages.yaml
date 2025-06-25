@@ -3,14 +3,6 @@
 homebrew_cask_packages:
   - iterm2
   - visual-studio-code
-  - slack
-  - google-chrome
   - spotify
   - keepassxc
   - google-drive
-
-homebrew_cask_audio_packages:
-  - ableton-live-suite
-  - ilok-license-manager
-  - waves-central
-  - native-access

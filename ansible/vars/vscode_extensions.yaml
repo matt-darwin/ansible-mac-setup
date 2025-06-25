@@ -6,7 +6,6 @@ vscode_extensions:
   - ms-azuretools.vscode-docker
   - redhat.vscode-yaml
   - eg2.vscode-npm-script
-  - scalameta.metals
   - amazonwebservices.aws-toolkit-vscode
   - 4ops.terraform
   - redhat.ansible
