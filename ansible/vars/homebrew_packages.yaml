@@ -20,3 +20,4 @@ homebrew_packages:
   - docker-compose
   - tfenv
   - 1password-cli
+  - ollama
