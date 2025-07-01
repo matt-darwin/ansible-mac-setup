@@ -19,3 +19,4 @@ homebrew_packages:
   - docker
   - docker-compose
   - tfenv
+  - 1password-cli
