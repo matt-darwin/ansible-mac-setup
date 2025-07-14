@@ -63,6 +63,10 @@
           eval "$(pyenv virtualenv-init -)"
           eval "$(jenv init -)"
 
+          export GOPATH=$HOME/go
+          export PATH=$PATH:$GOPATH/bin
+
+          export SINGLESTOREDB_API_KEY=$(op read op://Employee/gx27ud5mhfsxurle5zug3t32gm/credential)
         create: yes
 
     - name: Ensure JAVA_HOME is exposed automatically

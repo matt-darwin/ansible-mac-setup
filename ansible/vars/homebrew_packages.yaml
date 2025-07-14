@@ -21,3 +21,4 @@ homebrew_packages:
   - tfenv
   - 1password-cli
   - ollama
+  - go
