@@ -10,3 +10,4 @@ vscode_extensions:
   - 4ops.terraform
   - redhat.ansible
   - ms-vscode-remote.remote-containers
+  - ms-vscode-remote.vscode-remote-extensionpack
